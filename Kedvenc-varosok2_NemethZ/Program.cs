@@ -12,6 +12,7 @@ class Program
         string connectionString, sqlStatement;
         MySqlConnection dbConnection;
         MySqlCommand sqlCommand;
+        MySqlDataReader sqlReader;
 
         connectionString = "server=localhost;userid=root;password=;database=mo_telepulesek";
         dbConnection = new MySqlConnection(connectionString);
@@ -22,8 +23,16 @@ class Program
          *A parancs a `kvarosok` tábla teljes tartalmát kérdezze le.*/
         sqlStatement = "SELECT * FROM kvarosok;";
         sqlCommand = new MySqlCommand(sqlStatement, dbConnection);
+        
+        sqlReader = sqlCommand.ExecuteReader();
 
-        Console.WriteLine("hello");
+        /**/
+        while (sqlReader.Read())
+        {
+
+        }
+
+        dbConnection.Close();
 
         Console.ReadKey();
     }
