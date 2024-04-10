@@ -23,6 +23,7 @@ class Program
         sqlStatement = "SELECT * FROM kvarosok;";
         sqlCommand = new MySqlCommand(sqlStatement, dbConnection);
 
+        Console.WriteLine("hello");
 
         Console.ReadKey();
     }
