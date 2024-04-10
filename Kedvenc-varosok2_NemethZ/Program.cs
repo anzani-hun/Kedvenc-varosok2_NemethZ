@@ -39,7 +39,18 @@ class Program
             Console.WriteLine("");
         }
 
-        dbConnection.Close();
+
+        /*Adatok kiíratása táblázatos formában*/
+        Console.WriteLine("\nAdatok táblázatos formában:");
+        Console.WriteLine(sqlReader.GetName(0) + "\t" + sqlReader.GetName(1) + "\t" + sqlReader.GetName(2));
+
+        while (sqlReader.Read())
+        {
+            Console.WriteLine(sqlReader.GetString(0) + "\t" + sqlReader.GetString(1) + "\t" + sqlReader.GetInt32(2));
+        }
+
+
+    dbConnection.Close();
 
         Console.ReadKey();
     }
