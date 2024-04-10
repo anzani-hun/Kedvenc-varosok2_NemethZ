@@ -26,10 +26,17 @@ class Program
         
         sqlReader = sqlCommand.ExecuteReader();
 
-        /**/
+        /*ez addig fut amíg a read() metódus igaz értéket ad vissza*/
         while (sqlReader.Read())
         {
-
+            /*soronként írja ki*/
+            Console.WriteLine(sqlReader.GetString(0));      //string mert szöveg
+            Console.WriteLine(sqlReader.GetString(1));      //string mert szöveg
+            Console.WriteLine(sqlReader.GetInt32(2));       //mert ez évszám
+            Console.WriteLine("");
+            /*összefűzve ugyanaz egy kiírásba:*/
+            Console.WriteLine("Név: " + sqlReader.GetString(0) + ", megye: " + sqlReader.GetString(1) + ", hozzáadás éve: " + sqlReader.GetInt32(2));
+            Console.WriteLine("");
         }
 
         dbConnection.Close();
